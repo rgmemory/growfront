@@ -12,9 +12,9 @@ export class App extends Component {
       state: '',
       office: '',
       politicians: [],
-      district:'', 
+      district: null, 
       phone: null, 
-      office: '', 
+      address: '', 
       website: '',
       detailName: ''
     }
@@ -40,55 +40,38 @@ export class App extends Component {
     }else if( this.state.office === '' && this.state.state === ''){
       alert('Please select a state and a political office')
     }else if(this.state.office === 'representative'){  
-      console.log(this.state.office)  
       axios.get(`http://127.0.0.1:3000/representatives/${this.state.state}`).then(response => {
-        console.log('front end clicked', response.data.results)
         this.setState({
           politicians: response.data.results
         })
       })
     }else if(this.state.office === 'senator'){
-      console.log(this.state.office) 
       axios.get(`http://127.0.0.1:3000/senators/${this.state.state}`).then(response => {
-        console.log('front end clicked', response.data.results)
         this.setState({
           politicians: response.data.results
         })
       })
-
-      // console.log(this.state.politicians)
     }
-    
-    
   }
 
   moreInfo = (value) => {
-    console.log('value', value, 'politicians', this.state.politicians)
-
     let polHolder = this.state.politicians[value]
 
     this.setState({
       district: polHolder.district,
       phone: polHolder.phone,
-      office: polHolder.office,
-      website: polHolder.website,
+      address: polHolder.office,
+      website: polHolder.link,
       detailName: polHolder.name
     })
-    
-
   }
   
-  
   render() {
-    
-    // console.log(this.state.politicians.results)
-    let displayPoliticians = this.state.politicians.map((current, index) => {
+      let displayPoliticians = this.state.politicians.map((current, index) => {
       return(
-        <div className="" key={current + index}>
-          <div className="politicians">
-            <button onClick={() => this.moreInfo(index)}>{current.name}</button>
+        <div className="politicians" key={current + index}>
+            <button className="politician-button" onClick={() => this.moreInfo(index)}>{current.name}</button>
             {current.party}          
-          </div>
         </div>
       )
     })
@@ -96,8 +79,6 @@ export class App extends Component {
     return (
       <div className="App">
       <div className="app-container">
-
-        
 
         <div className="title">
           <p className="title-who">Who's My Representative</p>
@@ -164,7 +145,6 @@ export class App extends Component {
             <option value="WV">West Virginia</option>
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
-            
           </select>
 
           <button className="dropdown-button" onClick={() => this.submit()}>Sumbit</button>
@@ -172,21 +152,35 @@ export class App extends Component {
         </div>
 
         <div className="results">
-            <div className="results-columns">
               <div className="results-left">
-                <div className="">List / Representatives</div>
-                
-                {displayPoliticians}
+                <div className="results-left-header">List</div>
+
+                <div className="results-left-title">
+
+                  <div className="column-left">
+                    <p>Name</p>
+                  </div>
+
+                  <div className="column-right">
+                    <p>Party</p>
+                  </div>
+                    
+                </div>
+                  {displayPoliticians}
               </div>
+
               <div className="results-right">
-                Info
-                {this.state.detailName}
-                {this.state.district}
-                {this.state.phone}
-                {this.state.office}
-                {this.state.website}
+
+              <div className="results-right-header">Info</div>
+
+              <div className="gray-result"><p>Name:</p><div className="detail">{this.state.detailName}</div></div>
+              <div className="gray-result"><p>District:</p> <div className="detail">{this.state.district}</div></div>
+              <div className="gray-result"><p>Phone:</p> <div className="detail">{this.state.phone}</div></div>
+              <div className="gray-result"><p>Office:</p> <div className="detail">{this.state.address}</div></div>
+              <div className="gray-result"><p>Website:</p> <div className="detail">{this.state.website}</div></div>
+
               </div>
-            </div>
+
         </div>
         </div>
       </div>

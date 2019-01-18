@@ -1,5 +1,5 @@
 .politicians{
-  border: solid green 4px;
+  /* border: solid green 4px; */
   height: 100px;
   width: 100px;
 }
@@ -8,12 +8,12 @@
 .App{
   display: flex;
   justify-content: center;
-  border: solid purple 3px;
+  /* border: solid purple 3px; */
   height: 100vh;
 }
 .app-container{
-  border: solid yellow 2px;
-  width: 80%;
+  /* border: solid yellow 2px; */
+  width: 95%;
 }
 
 .title{
@@ -28,11 +28,13 @@
 
 .title-who{
   /* font-weight: 1px; */
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .dropdown{
   background-color: #489DFF;
-  border: solid black 1px;
+  /* border: solid black 1px; */
   height: 50px;
   display: flex;
   justify-content: center;
@@ -50,36 +52,84 @@
 
 .dropdown-button{
   background-color: #ccc;
-  color: black; 
+  /* color: black;  */
   border-radius: 5px;
 }
 
 .results{
-  border: solid black 1px;
+  /* border: solid black 1px; */
   /* height: 400px; */
   padding-bottom: 50px;
-}
-
-.results-columns{
-  border: solid black 1px;
-  /* height: 200px; */
+  /* background: pink; */
   display: flex;
   justify-content: space-between;
 }
 
 .results-left{
-  height: 100%;
-  width: 40%;
-  border: solid green 1px;
+  /* background-color: green; */
+  width: 47%;
+  margin-top: 15px;
 }
 
-.left-title{
-  background-color: #ccc;
+.results-left-header{
+  /* border: solid black 1px; */
+}
+
+.column-left{
+  /* border: solid green 1px; */
+  width: 75%;
+}
+
+.column-right{
+  /* border: solid green 1px; */
+  width: 22%;
+}
+
+.results-left-title{
+  background-color: #F8F8F9;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 5px;
+  font-size: 20px;
+  color: #878889;
 }
 
 .results-right{
-  border: solid green 1px;
-  height: 100%;
-  width: 40%;
+  /* background-color: dodgerblue; */
+  width: 47%;
+  margin-top: 15px;
 }
 
+.results-right-header{
+  /* border: solid black 1px; */
+  margin-bottom: 10px;
+}
+
+.politicians{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: red; */
+  width: 90%;
+  height: 40px;
+  padding: 5px;
+}
+
+.politician-button{
+  padding: 0;
+border: none;
+background: none;
+outline: none;
+}
+
+.gray-result{
+  background-color: #F8F8F9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  padding: 5px;
+  color: #878889;
+}
