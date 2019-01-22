@@ -45,6 +45,17 @@
 .dropdown-button {
   background-color: #ccc;
   border-radius: 5px;
+  outline: none;
+  height: 24px;
+  width: 90px;
+  border: none;
+}
+
+.dropdown-button:hover {
+  background-color: #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: lightslategray;
 }
 
 .results {
@@ -100,6 +111,12 @@
   border: none;
   background: none;
   outline: none;
+  font-size: 19px;
+}
+
+.politician-button:hover{
+  cursor: pointer;
+  color: #ccc;
 }
 
 .gray-result {
@@ -111,4 +128,8 @@
   border-radius: 3px;
   padding: 5px;
   color: #878889;
+}
+
+.gray-result p{
+  font-size: 20px;
 }

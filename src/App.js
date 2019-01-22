@@ -50,6 +50,7 @@ export class App extends Component {
       axios
         .get(`http://127.0.0.1:3000/senators/${this.state.state}`)
         .then(response => {
+          console.log(response)
           this.setState({
             politicians: response.data.results
           });
